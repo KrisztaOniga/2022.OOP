@@ -12,7 +12,7 @@ public class DateUtil {
     public static boolean isValidDate(int year, int month, int day) {
         if (day <= 0 || month <= 0 || year <= 0)
             return false;
-        if (month > 12 || day > 31)
+        if (month > 12 || day > 31 || year > 2022)
             return false;
         switch (day) {
             case 29: {
@@ -22,7 +22,6 @@ public class DateUtil {
                 break;
             }
             case 30: {
-
                 if (month == 2) {
                     return false;
                 }
@@ -34,7 +33,6 @@ public class DateUtil {
                 }
                 break;
             }
-
         }
         return true;
     }
