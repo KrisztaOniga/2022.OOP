@@ -52,13 +52,12 @@ public class Customer {
         for (int i = 0; i < numAccounts; ++i){
             if (accounts[i].getAccountNumber().equals(accountNumber)){
                 accounts[i] = null;
-                accounts[i] = accounts[accounts.length - 1];
+                accounts[i] = accounts[numAccounts - 1];
                 this.numAccounts--;
                 return;
             }
-            else
-                System.out.println("This AccountNumber does not exist!!!");
         }
+        System.out.println("This AccountNumber does not exist!!!");
     }
 
     public String getFirstName(){

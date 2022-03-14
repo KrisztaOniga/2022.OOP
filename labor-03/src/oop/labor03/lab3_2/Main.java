@@ -26,12 +26,14 @@ public class Main {
         }
         System.out.println(customer2.toString());
 
-        //customer1.closeAccount("OTP0001");
-        //customer2.closeAccount("OTP00019");
+        customer1.closeAccount("OTP0001");
+        customer2.closeAccount("OTP00019");
+
+        System.out.println(customer1.toString());
+        System.out.println(customer2.toString());
+
         System.out.println(customer1.getNumAccounts());
         System.out.println(customer2.getNumAccounts());
-
-
 
     }
 }

@@ -26,6 +26,7 @@ public class Main {
         System.out.println(customer2);
 
         customer2.setLastName(customer1.getLastName());
+        customer2.setAccount(customer1.getAccount());
         System.out.println(customer2);
     }
 }
