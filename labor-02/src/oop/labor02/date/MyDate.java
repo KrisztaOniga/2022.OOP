@@ -28,14 +28,11 @@ public class MyDate {
     }
 
     @Override
-    public String toString(){
-        String date = "Date: ";
-        date += " the year is: ";
-        date += this.year;
-        date += " the month is: ";
-        date += this.month;
-        date += " the day is: ";
-        date += this.day;
-        return date;
+    public String toString() {
+        return "MyDate{" +
+                "year=" + year +
+                ", month=" + month +
+                ", day=" + day +
+                '}';
     }
 }

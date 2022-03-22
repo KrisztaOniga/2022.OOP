@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+import static java.lang.System.arraycopy;
+
 public class MyArray {
     private int length;
     private  double[] elements;
@@ -18,18 +20,15 @@ public class MyArray {
     public MyArray(double[] array) {
         this.length = array.length;
         this.elements = new double[length];
-        for (int i = 0; i < array.length; i++) {
-            this.elements[i] = array[i];
-        }
+        System.arraycopy(array, 0, this.elements, 0, array.length);
+
+        //arraycopy(elements,0,this.elements,0,length);
     }
 
     public MyArray(MyArray array){
         this.length = array.length;
         this.elements= new double[this.length];
-        for(int i = 0; i < array.length; i++){
-            this.elements[i] = array.elements[i];
-        }
-
+        System.arraycopy(array.elements, 0, this.elements, 0, array.length);
     }
 
     public MyArray(String fileName){
