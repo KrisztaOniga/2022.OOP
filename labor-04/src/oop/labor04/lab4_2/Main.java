@@ -1,8 +1,5 @@
 package oop.labor04.lab4_2;
 
-import oop.labor04.lab4_1.Person;
-import oop.labor04.lab4_2.BankAccount;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
