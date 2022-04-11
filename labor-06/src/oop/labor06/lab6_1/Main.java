@@ -27,7 +27,6 @@ public class Main {
             System.out.println(customer);
 
          */
-        Random rand = new Random();
 
         Bank bank = new Bank("OTP");
 

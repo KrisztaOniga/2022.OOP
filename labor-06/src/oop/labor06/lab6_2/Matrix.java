@@ -89,7 +89,6 @@ public class Matrix {
         return multiply;
     }
 
-
     public static Matrix transpose(Matrix matrix1) {
         Matrix transpose = new Matrix(matrix1.columns, matrix1.rows);
         for (int i = 0; i < transpose.rows; i++) {

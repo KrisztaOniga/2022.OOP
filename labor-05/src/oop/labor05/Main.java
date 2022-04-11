@@ -93,7 +93,6 @@ public class Main {
                 String ID = items[0].trim();
                 String firstName = items[1].trim();
                 String lastName = items[2].trim();
-                // Convert String → int: Integer.parseInt( String)
                 students.add(new Student(ID, firstName, lastName));
             }
         } catch (FileNotFoundException e) {

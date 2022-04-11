@@ -1,14 +1,27 @@
-package oop.labor04.lab4_2;
+package oop.labor08.lab8_1.models;
 
 public class BankAccount {
 
-    private double balance;
-    private String accountNumber;
+    protected double balance;
+    protected final String accountNumber;
 
     //Constructor
-    public BankAccount(String accountNumber){
-        this.accountNumber = accountNumber;
-        this.balance = 0;
+
+    //generaljunk egyedi szamlaszamot
+    public static final String PREFIX = "OTP";
+    public static final int ACCOUNT_NUMBER_LENGTH = 10;
+    private static int numAccounts = 0;
+
+    protected BankAccount(){
+        ++numAccounts;
+        this.accountNumber = createAccountNumber();
+    }
+
+    public String createAccountNumber(){
+        int zeros = ACCOUNT_NUMBER_LENGTH - PREFIX.length() - String.valueOf(numAccounts).length();
+        return PREFIX + "0".repeat(zeros) + numAccounts;
+        //StringBuffer account = new StringBuffer();
+        //account.append(PREFIX + zeros + numAccounts);
     }
 
     //getters
