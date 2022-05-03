@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class ArrayListDictionary implements IDictionary{
 
-    private ArrayList<String> words = new ArrayList<>();
+    private final ArrayList<String> words = new ArrayList<>();
     private static ArrayListDictionary instance;
 
     ArrayListDictionary() {

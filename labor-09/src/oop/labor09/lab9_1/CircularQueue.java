@@ -93,6 +93,7 @@ public class CircularQueue implements IQueue {
             return false;
         if (this.CAPACITY != that.CAPACITY)
             return false;
-        return Objects.equals(items, that.items);
+
+        return true;
     }
 }

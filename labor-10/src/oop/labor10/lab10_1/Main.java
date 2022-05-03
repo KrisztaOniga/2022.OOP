@@ -14,21 +14,25 @@ public class Main {
         ArrayList<MyDate> dateList = new ArrayList<>();
         Random random = new Random();
         while(dateList.size()<10) {
-            int year = random.nextInt(2021);
-            int month = random.nextInt(12);
-            int day = random.nextInt(31);
+            int year = 2022;
+            int month = random.nextInt(12) + 1;
+            int day = random.nextInt(31) + 1;
             if(DateUtil.isValidDate(year, month, day)){
                 dateList.add(new MyDate(year, month, day));
             }
         }
+        System.out.println("Dates: ");
         for(MyDate date :dateList){
-            System.out.println(date );
+            System.out.println(date);
         }
 
         System.out.println("Rendezve:");
         Collections.sort(dateList);
+        for(MyDate date :dateList){
+            System.out.println(date );
+        }
 
-        System.out.println("Maskepp rendezve:");
+        System.out.println("Csokkeno sorrendbe rendezve:");
         Collections.sort(dateList, new Comparator<MyDate>() {
             @Override
             public int compare(MyDate o1, MyDate o2) {
@@ -44,7 +48,6 @@ public class Main {
                 return 0;
             }
         });
-
 
         for(MyDate date:dateList){
             System.out.println(date);

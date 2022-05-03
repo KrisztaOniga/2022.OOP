@@ -1,13 +1,17 @@
 package oop.labor10.lab10_2;
 
+import com.sun.source.tree.BreakTree;
 import oop.labor10.lab10_1.MyDate;
 
-public class Employee {
+import java.util.Comparator;
+import java.util.Objects;
+
+public class Employee{
     private final int ID;
-    private String firstName;
+    private final String firstName;
     private String LastName;
     private double salary;
-    private MyDate birthDate;
+    private final MyDate birthDate;
     private static int counter;
 
     public Employee(String firstName, String lastName, double salary, MyDate birthDate) {
@@ -16,6 +20,28 @@ public class Employee {
         this.salary = salary;
         this.birthDate = birthDate;
         this.ID = ++counter;
+    }
+
+    public static Comparator<Employee> CompareByFullName = new Comparator<Employee>() {
+        @Override
+        public int compare(Employee o1, Employee o2) {
+            if (o1.getFirstName().equals(o2.getFirstName())) {
+                return o1.getLastName().compareTo(o2.getLastName());
+            }
+            return o1.getFirstName().compareTo(o2.getFirstName());
+        }
+    };
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return ID == employee.ID;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(ID);
     }
 
     public int getID() {

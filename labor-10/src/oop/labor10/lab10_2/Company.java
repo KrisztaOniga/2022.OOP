@@ -27,11 +27,12 @@ public class Company {
         this.name = name;
     }
 
-//    public void hire(Employee employee) {
-//
-//    }
+    public void hire(Employee employee) {
+        if(!employees.contains(employee))
+            employees.add(employee);
+    }
 
-    public ArrayList<Employee> hireAll(String fileName) {
+    public void hireAll(String fileName) {
         Scanner scanner = null;
         try {
             scanner = new Scanner(new File(fileName));
@@ -52,14 +53,22 @@ public class Company {
             int month = Integer.parseInt(items[4].trim());
             int day = Integer.parseInt(items[5].trim());
 
-            employees.add(new Employee(firstName, lastName, salary, new MyDate(year, month, day)));
+            if (items.length == 6) {
+                this.employees.add(new Employee(firstName, lastName, salary, new MyDate(year, month, day)));
+            } else {
+                this.employees.add(new Manager(firstName, lastName, salary, new MyDate(year, month, day), items[6].trim()));
+            }
         }
-        return employees;
+        scanner.close();
     }
 
-//    public void fire(int) {
-//
-//    }
+    public void fire(int ID) {
+        for (int i = 0; i < employees.size(); i++) {
+            if(employees.get(i).getID() == ID){
+                employees.remove(employees.get(i));
+            }
+        }
+    }
 
     public void printAll(PrintStream ps) {
         for (Employee e : employees) {
@@ -67,14 +76,14 @@ public class Company {
         }
     }
 
-//    public void printManagers(PrintStream) {
-//
-//    }
-
-//public void sortByComparator(Comparator<Employee> comparator){
-//        Collections.sort(employees,comparator);
-//        }
-//
-//
-//        }
+    public void printManagers(PrintStream ps) {
+        for (int i = 0; i < employees.size(); i++) {
+            if(employees.get(i) instanceof Manager)
+                System.out.println(employees.get(i));
+        }
+    }
+    public void sortByComparator(Comparator<Employee> employeeComparator){
+        //Collections.sort(employees,employeeComparator);
+        employees.sort(employeeComparator);
+    }
 }
