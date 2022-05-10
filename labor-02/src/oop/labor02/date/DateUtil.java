@@ -16,7 +16,7 @@ public class DateUtil {
             return false;
         switch (day) {
             case 29: {
-                if (leapYear(year) == false && month == 2) {
+                if (!leapYear(year) && month == 2) {
                     return false;
                 }
                 break;

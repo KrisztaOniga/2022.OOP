@@ -1,20 +1,20 @@
 package oop.labor10.lab10_3;
 
-public class Product {
-    private int ID;
+public class Product implements Comparable<Product> {
+    private final int id;
     private String name;
     private int amount;
     private int price;
 
-    public Product(int ID, String name, int amount, int price) {
-        this.ID = ID;
+    public Product(int id, String name, int amount, int price) {
+        this.id = id;
         this.name = name;
         this.amount = amount;
         this.price = price;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -29,23 +29,25 @@ public class Product {
         return price;
     }
 
-    public void increaseAmount(int newAmount){
-        this.amount += newAmount;
+    public void updateAmount(int newAmount) {
+        amount += newAmount;
     }
 
     @Override
     public String toString() {
-        return "Product{" +
-                "ID=" + ID +
-                ", name='" + name + '\'' +
-                ", amount=" + amount +
-                ", price=" + price +
-                '}';
+        return "Product{" + "id=" + id + ", name='" + name + '\'' + ", amount=" + amount + ", price=" + price + '}';
     }
 
-    public int compareTo(Product obj) {
-        if(obj == null) throw new NullPointerException();
-        if(this.ID == obj.ID) return 0;
-        return this.ID - obj.ID;
+    @Override
+    public int compareTo(Product product) {
+        return this.id - product.id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return id == product.id;
     }
 }

@@ -65,7 +65,6 @@ public class Matrix {
 
     public static Matrix add(Matrix matrix1, Matrix matrix2) {
         if ((matrix1.rows != matrix2.rows) || (matrix1.columns != matrix2.columns)) {
-            System.out.println("Nem lehetseges a muvelet elvegzese!");
             return null;
         }
         Matrix sum = new Matrix(matrix1);
