@@ -26,13 +26,15 @@ public class Stack {
         }
     }
 
-    public double pop() throws ExpressionException{
-        if(!isEmpty())
+    public Object pop() throws ExpressionException{
+        if(!isEmpty()){
+            Object temp = items.get(items.size() - 1);
             items.remove(items.size() - 1);
+            return temp;
+        }
         else {
             throw new ExpressionException("STACK IS EMPTY");
         }
-        return 0;
     }
 
     public Object top() throws ExpressionException {

@@ -1,7 +1,9 @@
 package oop.labor12.lab12_3;
 
 
-public class Student {
+import java.util.Objects;
+
+public class Student implements Comparable<Student> {
     private int ID;
     private final String firstName;
     private final String lastName;
@@ -81,5 +83,15 @@ public class Student {
                 ", magyar=" + magyar +
                 ", average=" + average +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Student student) {
+        int firstNameCompare = this.firstName.compareTo(student.firstName);
+        if (firstNameCompare != 0) {
+            return firstNameCompare;
+        } else {
+            return this.lastName.compareTo(student.lastName);
+        }
     }
 }

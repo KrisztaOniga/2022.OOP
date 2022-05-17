@@ -23,6 +23,11 @@ public class Main {
         System.out.println("m3: ");
         m3.printMatrix();
         System.out.println("\nProduct: m1 * m3");
-        Matrix.multiply(m1, m3).printMatrix();
+        try {
+            Matrix.multiply(m1, m3).printMatrix();
+        }
+        catch (MatrixException ex){
+            System.out.println(ex.getMessage());
+        }
     }
 }

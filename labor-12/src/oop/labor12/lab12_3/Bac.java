@@ -2,9 +2,8 @@ package oop.labor12.lab12_3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
+import java.util.Collections;
 
 enum SUBJECT {
     ROMANIAN("roman.txt"),
@@ -81,16 +80,48 @@ public class Bac {
         }
     }
 
+//    public int getNumPassed(){
+//        int count = 0;
+//        for(Student student: map.values()){
+//            student.computeAverage();
+//            if(student.getAverage() > 0){
+//                ++count;
+//            }
+//        }
+//        return count;
+//    }
+//
     public int getNumPassed(){
         int count = 0;
-        for(Student student: map.values()){
-            student.computeAverage();
-            if(student.getAverage() > 0){
+        for( Integer kulcs: map.keySet()){
+            map.get(kulcs).computeAverage();
+            if(map.get(kulcs).getAverage() >= 6)
+                ++count;
+        }
+        return count;
+    }
+
+
+    public int getNotPassed(){
+        int count = 0;
+        //ArrayList<Student> students = new ArrayList<>();
+        for( Integer kulcs: map.keySet()){
+            map.get(kulcs).computeAverage();
+            if(map.get(kulcs).getAverage() < 6){
                 ++count;
             }
         }
         return count;
     }
 
-
+    public ArrayList<Student> failed() {
+        ArrayList<Student> failedStudents = new ArrayList<> ();
+        for (Integer kulcs : map.keySet()) {
+            map.get(kulcs).computeAverage();
+            if (map.get(kulcs).getAverage() < 6) {
+                failedStudents.add(map.get(kulcs));
+            }
+        }
+        return failedStudents;
+    }
 }

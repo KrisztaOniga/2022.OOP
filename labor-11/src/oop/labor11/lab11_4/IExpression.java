@@ -1,7 +1,7 @@
 package oop.labor11.lab11_4;
 
 import java.util.EmptyStackException;
-import java.util.Stack;
+//import java.util.Stack;
 
 public interface IExpression {
 
@@ -11,7 +11,8 @@ public interface IExpression {
     }
 
     static double evaluate(String postfixExpression) throws ExpressionException {
-        Stack<Double> stack = new Stack<>();
+        Stack stack = new Stack(10);
+       // Stack<Double> stack = new Stack<>();
         String [] items = postfixExpression.split(" ");
         for( String item: items ){
             item = item.trim();
@@ -20,8 +21,8 @@ public interface IExpression {
                 // kivesszuk a verem ket felso elemet es elvegezzuk a muveletet
                 // ha nincsen legalabb 2 elem a veremben --> kivetelt dobunk
                 try{
-                    double operand1 = stack.pop();
-                    double operand2 = stack.pop();
+                    double operand1 = (double) stack.pop();
+                    double operand2 = (double) stack.pop();
                     switch( item ){
                         case "+": stack.push(operand1 + operand2); break;
                         case "-": stack.push(operand1 - operand2); break;
@@ -42,7 +43,7 @@ public interface IExpression {
             }
         }
         try{
-            return stack.pop();
+            return (double) stack.pop();
         }catch( EmptyStackException e ){
             throw new ExpressionException("Wrong postfix expression");
         }

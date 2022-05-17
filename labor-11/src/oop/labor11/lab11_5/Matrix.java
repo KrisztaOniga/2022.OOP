@@ -63,7 +63,7 @@ public class Matrix {
         }
     }
 
-    public static Matrix add(Matrix matrix1, Matrix matrix2)throws MatrixException {
+    public static Matrix add(Matrix matrix1, Matrix matrix2) throws MatrixException {
         if ((matrix1.rows != matrix2.rows) || (matrix1.columns != matrix2.columns)) {
             throw new MatrixException("Improper matrix dimensions\n");
         }
@@ -76,7 +76,10 @@ public class Matrix {
         return sum;
     }
 
-    public static Matrix multiply(Matrix matrix1, Matrix matrix2){
+    public static Matrix multiply(Matrix matrix1, Matrix matrix2) throws MatrixException{
+        if( (matrix1.columns) != matrix2.rows){
+            throw new MatrixException("Improper matrix dimensions\n");
+        }
         Matrix multiply = new Matrix(matrix1.rows, matrix2.columns);
         for (int i = 0; i < multiply.rows; i++) {
             for (int j = 0; j < multiply.columns; j++) {

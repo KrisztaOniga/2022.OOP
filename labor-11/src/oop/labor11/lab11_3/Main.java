@@ -5,8 +5,10 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args){
         try{
-            FileUtil.encode("students.csv", "temp1.txt");
-            FileUtil.decode("temp1.txt", "temp2.txt");
+            //FileUtil.encode("students.csv", "temp1.txt");
+            //FileUtil.decode("temp1.txt", "temp2.txt");
+            FileUtil.decode("file1.txt", "file2.txt");
+
         }catch (IOException e) {
             e.printStackTrace();
         }

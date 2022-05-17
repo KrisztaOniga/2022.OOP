@@ -1,4 +1,4 @@
-package oop.labor09.lab9_2;
+package oop.labor12.lab12_1.lab9_2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -50,5 +50,4 @@ public class DictionaryService {
         }
         return result;
     }
-
 }
